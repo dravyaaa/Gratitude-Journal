@@ -16,10 +16,7 @@ const Header = () => {
             <Nav.Link as={Link} to="/entries" className={location.pathname === '/entries' ? 'active' : ''}>Entries</Nav.Link>
             {/* Add more Nav.Link for different sections */}
           </Nav>
-          <Nav>
-            <Nav.Link as={Link} to="/login">Login</Nav.Link>
-            {/* Add more user-related options */}
-          </Nav>
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>

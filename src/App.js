@@ -6,7 +6,6 @@ import Header from './Components/Header';
 import Home from './Components/Home';
 import Entries from './Components/Entries';
 import PersonalizedPrompts from './Components/PersonalizedPrompts';
-import Login from './Components/Login';
 
 const App = () => {
   const [userResponses, setUserResponses] = useState([]); // State to store user responses
@@ -32,7 +31,7 @@ const App = () => {
           />
           {/* Display user responses in UserResponsesDisplay */}
           <Route exact path="/user-responses" element={<UserResponsesDisplay userResponses={userResponses} />} />
-          <Route path="/login" element={<Login />} />
+          
           {/* Add more routes for other components */}
         </Routes>
       </div>

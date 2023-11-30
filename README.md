@@ -1,72 +1,64 @@
 # CMPSC472_finalproject
 =======
-## Gratitude Journal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Installation
 
-## Available Scripts
+#### 1. Clone the repository to your local machine using the following Git command:
+```bash
+git clone git@github.com:darsh8692/CMPSC472_finalproject.git
+```
+#### 2. Install the npm packages:
+```bash
+npm install
+```
+#### 3. Run the project using following command:
+Runs the app in the development mode.
+```bash
+npm start
+```
+Launches the test runner in the interactive watch mode.
+```bash
+npm test
+```
+Builds the app for production to the `build` folder.
+```bash
+npm run build
+```
+## Usage instructions
 
-In the project directory, you can run:
+#### Dashboard Navigation:
+- Upons running the app, users will be directed to the dashboard.
+- Use the navigation menu to explore different sections: Home, Entries, Personalized Prompts, and New Journal entry.
 
-### `npm start`
+#### Create a Journal Entry:
+- Click on the "New Entry" or "Create Journal Entry" button.
+- For your entry begin typing or use the voice-to-text feature to record your thoughts.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Personalized Prompts:
+- Explore the "Personalized Prompts" section for suggestions to enhance your gratitude practice.
+- Respond to prompts by typing.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Goals
+- Develop a user-friendly Gratitude Journal web application tailored specifically for elderly users.
+- Implement features for creating journal entries, including personalized prompts and voice-to-text entry.
+- Prioritize simplicity and accessibility in the user interface to accommodate varying levels of technological familiarity among elderly users.
+- Integrate gentle reminders to encourage and support consistent engagement with gratitude practices.
+- Provide an option for users to attach images to their entries, fostering a more personalized and meaningful reflection.
 
-### `npm test`
+## Significance of the Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Enhancing Emotional Well-being:
+- Cultivates a positive mindset by facilitating the expression and acknowledgment of daily moments of gratitude.
+- Supports mental and emotional well-being by encouraging regular reflection on positive aspects of life.
 
-### `npm run build`
+#### Tailored Experience for the Elderly:
+- Addresses the specific needs and preferences of elderly users through features like larger fonts, simplified navigation, and voice-to-text entry.
+- Recognizes the importance of customization in technology for diverse user demographics.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Digital Companion for Loneliness:
+- Acts as a digital companion for the elderly, fostering a sense of connection and companionship.
+- Provides a platform for self-expression and reflection, reducing feelings of isolation.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Multimodal Input with Voice-to-Text:
+- Enhances accessibility by including a voice-to-text feature, allowing users to effortlessly create journal entries without the need for typing.
+- Acknowledges and accommodates diverse abilities and preferences among elderly users.
