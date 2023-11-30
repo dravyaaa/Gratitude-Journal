@@ -1,6 +1,6 @@
 # CMPSC472_finalproject
 =======
-# Getting Started with Create React App
+## Gratitude Journal
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
