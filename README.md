@@ -62,3 +62,10 @@ npm run build
 #### Multimodal Input with Voice-to-Text:
 - Enhances accessibility by including a voice-to-text feature, allowing users to effortlessly create journal entries without the need for typing.
 - Acknowledges and accommodates diverse abilities and preferences among elderly users.
+
+## Code Structure
+
+#### Data Storage Location:
+- The data and entries are stored on the client side within the browser's localStorage. This local storage provides a simple way to persistently store and retrieve JSON-formatted data.
+- The React component (Entries) utilizes the localStorage feature to maintain and persist the journal entries. The entries are stored as a JSON-formatted string, allowing them to survive page reloads or closures.
+- In this implementation, data storage is handled entirely on the client side, making it suitable for scenarios where server-side storage or a database is not required.

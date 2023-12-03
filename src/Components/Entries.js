@@ -1,15 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddEntryButton from './AddEntryButton';
+
 
 const Entries = () => {
   const [journalEntries, setJournalEntries] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [recognizedText, setRecognizedText] = useState('');
 
+  // Load entries from localStorage on component mount
+  useEffect(() => {
+    const storedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+    setJournalEntries(storedEntries);
+  }, []);
+
   const addEntry = (newEntry) => {
-    setJournalEntries([...journalEntries, newEntry]);
+    const updatedEntries = [...journalEntries, newEntry];
+    setJournalEntries(updatedEntries);
+
+    // Save entries to localStorage
+    localStorage.setItem('journalEntries', JSON.stringify(updatedEntries));
+
     setShowModal(false);
   };
+
+  const deleteEntry = (index) => {
+    const updatedEntries = [...journalEntries];
+    updatedEntries.splice(index, 1);
+    setJournalEntries(updatedEntries);
+    localStorage.setItem('journalEntries', JSON.stringify(updatedEntries));
+  };
+
+
 
   const voiceToText = () => {
     let recognition = null;
@@ -54,6 +75,7 @@ const Entries = () => {
           {journalEntries.map((entry, index) => (
             <li key={index}>
               {entry}
+              <button onClick={() => deleteEntry(index)}>Delete</button>
               {index === journalEntries.length - 1 && recognizedText && (
                 <span> - Recognized Text: {recognizedText}</span>
               )}
