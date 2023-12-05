@@ -1,5 +1,4 @@
 # CMPSC472_finalproject
-=======
 
 ## Installation
 
@@ -69,3 +68,88 @@ npm run build
 - The data and entries are stored on the client side within the browser's localStorage. This local storage provides a simple way to persistently store and retrieve JSON-formatted data.
 - The React component (Entries) utilizes the localStorage feature to maintain and persist the journal entries. The entries are stored as a JSON-formatted string, allowing them to survive page reloads or closures.
 - In this implementation, data storage is handled entirely on the client side, making it suitable for scenarios where server-side storage or a database is not required.
+
+======
+
+
+
+
+## Functionalities and Test Results
+
+#### Home Page:
+It will display the user interface that will allow the user to navigate to different areas in the app. The User Interface is designed to simplify the task categorization for the elderly specifically. 
+- Path to make a journal entry
+  - 'Entries' tab on the top bar will allow to see the entries directly. 
+- Path to Prompts window
+- Path to add images to the entries
+
+#### Test Results:
+
+![Screenshot (522)](https://github.com/darsh8692/CMPSC472_finalproject/assets/107662465/cf5bc34c-0416-456f-b015-9efee2016511)
+
+
+#### Make a New Journal Entry:
+- Take the user to 'Entries' page where:
+  - Users can add their feelings, notes, or their thoughts in two primary ways:
+    - Entering their input in the text box and saving the entry.
+    - Using a voice-to-text operation which will record thier voice and automatically form an entry when the user stops speaking.
+  - Display Data: Notes will be displayed accurately. The voice notes will have an additional display feature, 'Recognized text:' which will tell the user what computer interpreted from their voice. Through this, user can also identify the way the note was added.
+
+#### Test Results:
+
+![Screenshot (523)](https://github.com/darsh8692/CMPSC472_finalproject/assets/107662465/64a061fe-2c7b-4ac1-a7f7-63b129871795)
+
+![Screenshot (524)](https://github.com/darsh8692/CMPSC472_finalproject/assets/107662465/5e5fbef5-5fe3-4a3b-8890-8759641c5ea6)
+
+![Screenshot (525)](https://github.com/darsh8692/CMPSC472_finalproject/assets/107662465/aebc8d1a-da5e-4181-9b99-a906eba574f6)
+
+
+#### Personalized Prompts: 
+- **Answer Prompt:** Displays 6 prompt cards with different prompt in each. Users can enter their response to one or all prompts and then submit their response.
+- **Display Responses:** Users will be displayed with their responses to each category they answered on the previous screen.
+
+#### Test Results:
+
+![Screenshot (529)](https://github.com/darsh8692/CMPSC472_finalproject/assets/107662465/1034b84f-8517-4434-b5e1-43116d45174f)
+
+![Screenshot (528)](https://github.com/darsh8692/CMPSC472_finalproject/assets/107662465/c547b4d2-d5b3-4287-b18c-07dc61417e04)
+
+
+
+
+#### Upload Images: 
+- **Integrating Image Adding Functionality:** Users will have the opportunity to express themselves through multiple mediums—writing, speaking, and adding images—to convey their feelings and experiences more comprehensively.
+  - User will be able to add images (png, jpeg, etc) to thier entries.
+  - Delete the image that was added previously.
+- **Enhanced Memory Recall:** Incorporating photos or visual elements into their gratitude entries can help users recall specific moments and experiences more vividly, reinforcing the positive emotions associated with those memories.
+
+#### Test Results: 
+
+![Screenshot (530)](https://github.com/darsh8692/CMPSC472_finalproject/assets/107662465/8a8f3871-755c-481e-83ab-863996268b76)
+
+
+## Discussion and Conclusion
+
+### Issues: 
+- Memory Management: The app's image upload functionality could pose memory management challenges, especially on devices with limited storage capacity. Large image files might strain the system resources, affecting overall app performance. This is also why the image uploading fuctionaility has not been incorportaed comppletely into our app as of now. It is part of one of the features that could be added to the application in future.
+
+- Concurrency and Synchronization: Simultaneous access to the app by multiple users or simultaneous operations like uploading images and writing entries might lead to issues related to concurrency and synchronization. Conflicts in accessing and modifying shared resources could occur. 
+
+- File System Limitations: Handling a large number of image files within the app might lead to issues related to file system limitations, especially in terms of file organization, naming conflicts, or potential fragmentation.
+
+### Limitations: 
+- Device Compatibility: Older devices commonly used by the elderly might have limited processing power or outdated operating systems, which could limit the app's functionality or performance.
+
+- User Interface Adaptability: The app's interface might not be easily adaptable to different screen sizes or accessibility features present in various devices, creating potential problems with usability for some users.
+
+- Security Concerns: Storing personal images within the app could raise security concerns. To deal with this, we would be required to ensure data encryption and implementing secure storage measures to protect users' private information.
+
+### Application of Course Learnings: 
+- Memory Optimization: Knowledge of memory management techniques taught in the course helped in optimizing the app's memory usage. It will also come in handy while ensuring efficient handling of image data and preventing memory leaks.
+
+- Concurrency Control: Concepts of synchronization and concurrency control can be applied to manage simultaneous access to shared resources within the app, ensuring data integrity and preventing conflicts during image uploads or journal entries.
+
+- File System Handling: Understanding file system structures and limitations guided the design of a robust file management system within the app, addressing issues related to file naming, organization, and potential fragmentation.
+
+### Conclusion
+In conclusion, considerations related to memory management, concurrency, file system handling, and device compatibility are crucial. Applying concepts learned in the course can aid in mitigating these issues, optimizing app performance, and ensuring a smoother user experience for elderly users.
