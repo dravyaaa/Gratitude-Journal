@@ -81,8 +81,18 @@ const Entries = () => {
           {journalEntries.map((entry, index) => (
             <li key={index} className="mb-2">
               {entry}
-              <button onClick={() => updateEntry(index)}>Update</button>
-              <button onClick={() => deleteEntry(index)}>Delete</button>
+              <button
+                    style={{ backgroundColor: '#3490dc', color: '#fff', borderRadius: '8px', border: 'none' }}
+                    onClick={() => updateEntry(index)}
+                  >
+                    Update
+                  </button>
+                  <button
+                    style={{ backgroundColor: '#e3342f', color: '#fff', borderRadius: '8px', border: 'none' }}
+                    onClick={() => deleteEntry(index)}
+                  >
+                    Delete
+                  </button>
             </li>
           ))}
         </ul>

@@ -48,6 +48,9 @@ const PersonalizedPrompts = ({ userResponses, setUserResponses }) => {
     }
   
     setUserResponses(updatedResponses.filter(Boolean)); // Remove undefined entries
+
+    // Save userResponses to local storage
+    localStorage.setItem('userResponses', JSON.stringify(updatedResponses));
   };
   
   
@@ -111,6 +114,22 @@ const PersonalizedPrompts = ({ userResponses, setUserResponses }) => {
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
           <form onSubmit={handleSubmit}>
+          <button
+              type="button"
+              onClick={() => navigate('/user-responses')}
+              style={{
+                padding: '10px 20px',
+                borderRadius: '5px',
+                border: 'none',
+                backgroundColor: 'green',
+                color: 'white',
+                cursor: 'pointer',
+                fontSize: '16px',
+                marginRight: '10px', // Add margin to separate buttons
+              }}
+            >
+              View Entries
+            </button>
             <button
               type="submit"
               style={{
