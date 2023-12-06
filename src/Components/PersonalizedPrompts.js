@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import backgroundImage from './backg.jpg';
@@ -35,15 +35,22 @@ const PersonalizedPrompts = ({ userResponses, setUserResponses }) => {
   ];
 
   const handleInput = (categoryIndex, promptIndex, userInput) => {
-    const updatedResponses = [...(userResponses || [])];
+    const updatedResponses = userResponses ? [...userResponses] : [];
   
     if (!updatedResponses[categoryIndex]) {
       updatedResponses[categoryIndex] = [];
     }
   
-    updatedResponses[categoryIndex][promptIndex] = userInput;
-    setUserResponses(updatedResponses);
+    if (!updatedResponses[categoryIndex][promptIndex]) {
+      updatedResponses[categoryIndex][promptIndex] = userInput;
+    } else {
+      updatedResponses[categoryIndex][promptIndex] = userInput;
+    }
+  
+    setUserResponses(updatedResponses.filter(Boolean)); // Remove undefined entries
   };
+  
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,7 +69,10 @@ const PersonalizedPrompts = ({ userResponses, setUserResponses }) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      style={{ display: 'flex', justifyContent: 'center' }}
+      style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        background: 'linear-gradient(to right, #3498db, #a9cce3)'}}
     >
       <div style={{ width: '70%' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>

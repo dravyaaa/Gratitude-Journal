@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaPencilAlt, FaCalendarAlt } from 'react-icons/fa'; // Import icons
+import { FaPencilAlt, FaCalendarAlt, FaImage } from 'react-icons/fa'; // Import icons
 
 const Category = ({ title, description, route, icon }) => {
   const categoryStyles = {
@@ -67,6 +67,12 @@ const Home = () => {
       route: '/personalized-prompts',
       icon: <FaCalendarAlt size={64} />,
     },
+    {
+      title: 'Upload Images',
+      description: 'Upload images to include in your journal entries.',
+      route: '/upload-images',
+      icon: <FaImage size={64} />, // Assuming FaImage is your icon for image upload
+    },
     // Add more categories as needed
   ];
 
@@ -77,7 +83,7 @@ const Home = () => {
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
       style={{
-        background: 'linear-gradient(120deg, #a1c4fd, #c2e9fb, #f64f59)',
+        background: 'linear-gradient(135deg, #4169E1, #87CEEB, #ffffff, #FFE4E1)',
         minHeight: '100vh',
         position: 'relative',
         display: 'flex',
@@ -87,9 +93,9 @@ const Home = () => {
         textAlign: 'center',
       }}
     >
-      <h1 style={{ color: '#fff', fontSize: '3em', marginBottom: '20px' }}>Welcome to Gratitude Journal!</h1>
-      <p style={{ color: '#fff', fontSize: '1.2em', maxWidth: '600px' }}>
-        This is the home page of our application. Share your gratitude and positive experiences here.
+      <h1 style={{ color: '#000000', fontSize: '3em', marginBottom: '20px' }}>Welcome to Gratitude Journal!</h1>
+      <p style={{ color: '#4169E1', fontSize: '1.2em', maxWidth: '600px' }}>
+        This is a Safe Space. Share your gratitude and positive experiences here.
       </p>
 
       {/* Display categories as visually appealing cards */}

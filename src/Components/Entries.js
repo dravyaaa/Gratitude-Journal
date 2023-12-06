@@ -1,89 +1,63 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AddEntryButton from './AddEntryButton';
-
 
 const Entries = () => {
   const [journalEntries, setJournalEntries] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [recognizedText, setRecognizedText] = useState('');
 
-  // Load entries from localStorage on component mount
-  useEffect(() => {
-    const storedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
-    setJournalEntries(storedEntries);
-  }, []);
-
   const addEntry = (newEntry) => {
-    const updatedEntries = [...journalEntries, newEntry];
-    setJournalEntries(updatedEntries);
-
-    // Save entries to localStorage
-    localStorage.setItem('journalEntries', JSON.stringify(updatedEntries));
-
+    setJournalEntries([...journalEntries, newEntry]);
     setShowModal(false);
   };
 
-  const deleteEntry = (index) => {
-    const updatedEntries = [...journalEntries];
-    updatedEntries.splice(index, 1);
-    setJournalEntries(updatedEntries);
-    localStorage.setItem('journalEntries', JSON.stringify(updatedEntries));
-  };
-
-
-
   const voiceToText = () => {
     let recognition = null;
-
-    if ('SpeechRecognition' in window) {
-      recognition = new window.SpeechRecognition();
-    } else if ('webkitSpeechRecognition' in window) {
-      recognition = new window.webkitSpeechRecognition();
-    }
-
-    if (recognition) {
+  
+    const handleRecognition = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setRecognizedText(transcript);
+      addEntry(transcript);
+    };
+  
+    const handleError = (event) => {
+      console.error('Speech recognition error:', event.error);
+    };
+  
+    if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+      recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
       recognition.continuous = false;
       recognition.lang = 'en-US';
-
-      recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript;
-        setRecognizedText(transcript);
-        addEntry(transcript);
-      };
-
-      recognition.onerror = (event) => {
-        console.error('Speech recognition error:', event.error);
-      };
-
+      recognition.onresult = handleRecognition;
+      recognition.onerror = handleError;
       recognition.start();
     }
-  };
+  };;
 
   return (
-    <div>
-      <h2>Your Journal Entries</h2>
+    <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center">
+      <h2 className="text-2xl font-bold mb-4 text-center">Your Journal Entries</h2>
       <AddEntryButton
         handleAddEntry={addEntry}
         showModal={showModal}
         setShowModal={setShowModal}
         voiceToText={voiceToText}
-        setRecognizedText={setRecognizedText} // Pass setRecognizedText function as a prop
+        setRecognizedText={setRecognizedText}
       />
 
       {journalEntries.length > 0 ? (
-        <ul>
+        <ul className="list-disc pl-4">
           {journalEntries.map((entry, index) => (
-            <li key={index}>
+            <li key={index} className="mb-2">
               {entry}
-              <button onClick={() => deleteEntry(index)}>Delete</button>
               {index === journalEntries.length - 1 && recognizedText && (
-                <span> - Recognized Text: {recognizedText}</span>
+                <span className="text-sm italic ml-2"> - Recognized Text: {recognizedText}</span>
               )}
             </li>
           ))}
         </ul>
       ) : (
-        <p>No entries yet. Start adding!</p>
+        <p className="text-gray-500 mt-4 text-center">No entries yet. Start adding!</p>
       )}
     </div>
   );
