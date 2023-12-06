@@ -6,8 +6,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "body-parser": "^1.20.2",
     "axios": "^1.6.2",
+    "body-parser": "^1.20.2",
     "bootstrap": "^5.3.2",
     "express": "^4.18.2",
     "framer-motion": "^10.16.5",
@@ -48,5 +48,10 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
-  }
+  },
+  "description": "```bash\r git clone git@github.com:darsh8692/CMPSC472_finalproject.git\r ```\r #### 2. Install the npm packages:\r ```bash\r npm install\r ```\r #### 3. Run the project using following command:\r Runs the app in the development mode.\r ```bash\r npm start\r ```\r Launches the test runner in the interactive watch mode.\r ```bash\r npm test\r ```\r Builds the app for production to the `build` folder.\r ```bash\r npm run build\r ```\r ## Usage instructions",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

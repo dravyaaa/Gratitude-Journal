@@ -37,6 +37,20 @@ npm run build
 - Explore the "Personalized Prompts" section for suggestions to enhance your gratitude practice.
 - Respond to prompts by typing.
 
+## Project Overview
+
+The Gratitude Journal Web Application is a user-friendly digital platform designed to cater specifically to elderly users, providing them with a seamless and accessible tool for expressing gratitude, enhancing emotional well-being, and reducing feelings of loneliness.
+
+Some of the OS concepts used in the project are:
+
+**File System Interaction:**
+The project simulates file system interactions using the localStorage API in the browser. This abstraction allows for data persistence similar to how files are stored in a traditional file system.
+
+**System Calls:**
+The project utilizes underlying system calls made by the browser when interacting with the localStorage API for storing and retrieving data.
+
+
+
 ## Project Goals
 - Develop a user-friendly Gratitude Journal web application tailored specifically for elderly users.
 - Implement features for creating journal entries, including personalized prompts and voice-to-text entry.
@@ -69,9 +83,19 @@ npm run build
 - The React component (Entries) utilizes the localStorage feature to maintain and persist the journal entries. The entries are stored as a JSON-formatted string, allowing them to survive page reloads or closures.
 - In this implementation, data storage is handled entirely on the client side, making it suitable for scenarios where server-side storage or a database is not required.
 
-======
+#### Components:
 
+This directory contains individual React components that are used to build the application's user interface.
 
+**AddEntryButton.js:** Component for the "Add New Entry" button and the modal for creating entries.
+
+**Entries.js:** Component for managing journal entries, including adding, updating, and deleting entries.
+
+**Header.js:** Component representing the application header/navigation bar.
+
+**PersonalizedPrompts.js:** Component for displaying personalized prompts for journal entries.
+
+**UserResponsesDisplay.js:** Component for displaying user responses to prompts.
 
 
 ## Functionalities and Test Results

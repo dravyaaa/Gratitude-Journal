@@ -1,22 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddEntryButton from './AddEntryButton';
 
 const Entries = () => {
   const [journalEntries, setJournalEntries] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [recognizedText, setRecognizedText] = useState('');
+  const [selectedEntryIndex, setSelectedEntryIndex] = useState(null);
+
+  // Load entries from localStorage on component mount
+  useEffect(() => {
+    const storedEntries = JSON.parse(localStorage.getItem('journalEntries')) || [];
+    setJournalEntries(storedEntries);
+  }, []);
 
   const addEntry = (newEntry) => {
-    setJournalEntries([...journalEntries, newEntry]);
-    setShowModal(false);
+  if (selectedEntryIndex !== null) {
+    // If selectedEntryIndex is not null, update existing entry
+    const updatedEntries = [...journalEntries];
+    updatedEntries[selectedEntryIndex] = newEntry;
+    setJournalEntries(updatedEntries);
+    setSelectedEntryIndex(null);
+  } else {
+    // Otherwise, add a new entry
+    const updatedEntries = [...journalEntries, newEntry];
+    setJournalEntries(updatedEntries);
+  }
+
+  // Save entries to localStorage
+  localStorage.setItem('journalEntries', JSON.stringify(journalEntries));
+
+  setShowModal(false);
+};
+
+  const deleteEntry = (index) => {
+    const updatedEntries = [...journalEntries];
+    updatedEntries.splice(index, 1);
+    setJournalEntries(updatedEntries);
+    localStorage.setItem('journalEntries', JSON.stringify(updatedEntries));
   };
 
+  const updateEntry = (index) => {
+    // Set the selected entry index and open the modal with existing entry content
+    setSelectedEntryIndex(index);
+    setShowModal(true);
+  };
+  
   const voiceToText = () => {
     let recognition = null;
   
     const handleRecognition = (event) => {
       const transcript = event.results[0][0].transcript;
-      setRecognizedText(transcript);
       addEntry(transcript);
     };
   
@@ -42,7 +74,6 @@ const Entries = () => {
         showModal={showModal}
         setShowModal={setShowModal}
         voiceToText={voiceToText}
-        setRecognizedText={setRecognizedText}
       />
 
       {journalEntries.length > 0 ? (
@@ -50,9 +81,8 @@ const Entries = () => {
           {journalEntries.map((entry, index) => (
             <li key={index} className="mb-2">
               {entry}
-              {index === journalEntries.length - 1 && recognizedText && (
-                <span className="text-sm italic ml-2"> - Recognized Text: {recognizedText}</span>
-              )}
+              <button onClick={() => updateEntry(index)}>Update</button>
+              <button onClick={() => deleteEntry(index)}>Delete</button>
             </li>
           ))}
         </ul>
