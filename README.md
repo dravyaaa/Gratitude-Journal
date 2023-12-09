@@ -1,4 +1,4 @@
-# CMPSC472_finalproject
+# Gratitude Journal for the Elderly
 
 ## Installation
 
